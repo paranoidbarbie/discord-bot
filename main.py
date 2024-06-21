@@ -17,7 +17,4 @@ async def on_ready():
 async def hello(self):
     await self.send(f"Hi cutie >_< {self.author.mention}.")
 
-
-
-
 bot.run(TOKEN)
