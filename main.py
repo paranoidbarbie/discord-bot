@@ -34,8 +34,7 @@ async def embedvideo(self):
     embedMessage.set_thumbnail(url=self.author.avatar)
     embedMessage.set_image(url=ytThumbnail)
     await self.send(f"{roleid}")
-
-    await self.send(embed=embedMessage) 
+    await self.send(embed=embedMessage)
 
 bot.run(TOKEN)
 
