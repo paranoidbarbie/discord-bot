@@ -34,12 +34,9 @@ async def embedvideo(self):
     embedMessage.add_field(name='', value=videoLink)
     embedMessage.set_thumbnail(url=self.author.avatar)
     embedMessage.set_image(url=ytThumbnail)
-    embedMessage.set_footer(text="<@1249459622205722686>")
-    await self.send(f"<@1249459622205722686>")
+    await self.send(f"<@&1249459622205722686>")
     await self.send(embed=embedMessage)
     
-
-
 
 bot.run(TOKEN)
 
