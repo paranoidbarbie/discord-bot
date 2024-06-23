@@ -23,19 +23,23 @@ async def hello(self):
 
 @bot.command()
 async def embedvideo(self):
-    roleid = "<@&role_id>" #put the role id you want to mention  
-    channel = "https://youtube.com/@channel_id" #put the channel id you wanna fetch data from 
+    channel = "https://youtube.com/@programmer_cutie"
     html = requests.get(channel+'/videos').text
     videoLink = "https://www.youtube.com/watch?v=" + re.search('(?<="videoId":").*?(?=")', html).group()
     youtubeimage = "https://img.youtube.com/vi/" + re.search('(?<="videoId":").*?(?=")', html).group()
     ytThumbnail = youtubeimage + '/maxresdefault.jpg'
-    embedMessage = discord.Embed(title="Hi cuties", description="Check out admin's new video", color=discord.Color.pink())
+    channel_id = 1254440863925407825
+    channel = bot.get_channel(channel_id)
+    embedMessage = discord.Embed(title="Hi cuties", description="Check out Hannah's new video on youtube", color=discord.Color.pink())
     embedMessage.add_field(name='', value=videoLink)
     embedMessage.set_thumbnail(url=self.author.avatar)
     embedMessage.set_image(url=ytThumbnail)
-    await self.send(f"{roleid}")
+    embedMessage.set_footer(text="<@1249459622205722686>")
+    await self.send(f"<@1249459622205722686>")
+    await self.send(embed=embedMessage)
+    
 
-    await self.send(embed=embedMessage) 
+
 
 bot.run(TOKEN)
 
