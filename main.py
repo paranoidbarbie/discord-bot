@@ -20,22 +20,21 @@ async def on_ready():
 
 @bot.command(aliases=["hi", "heyo", "hey", "hewo", "hiya", "hai"])
 async def hello(self):
-    await self.send(f"Hi cutie >_< {self.author.mention}.")
+    await self.send(f"Hi cutie >_< {self.author.mention}.") #genetic basic hello
 
 
 @bot.command()
 async def embedvideo(self):
-    roleid = "<@&role_id>" #put the role id you want to mention  
-    channel = "https://youtube.com/@channel_id" #put the channel id you wanna fetch data from 
+    roleid = "<@&role_id>" #put the role id you want to mention
+    ytChannelID = "channeid" #put the channel id of the channel you wanna show video of
+    channel = "https://youtube.com/@" + ytChannelID #put the channel id you wanna fetch data from 
     discordChannel = bot.get_channel(@channelid) replace @channelid with actual channel id. 
-    channel = "https://youtube.com/@programmer_cutie"
     html = get(channel+'/videos').text
     videoLink = "https://www.youtube.com/watch?v=" + search('(?<="videoId":").*?(?=")', html).group()
     youtubeimage = "https://img.youtube.com/vi/" + search('(?<="videoId":").*?(?=")', html).group()
     ytTitle = YouTube(videoLink).title
     ytThumbnail = youtubeimage + '/maxresdefault.jpg'
-    embedMessage = discord.Embed(title="Hi cuties", description=f"Check out Hannah's new video on youtube\n # [{ytTitle}]({videoLink})", color=discord.Color.pink())
-    embedMessage.add_field(name=f'', value=f"[{ytTitle}]({videoLink})", inline=False)
+    embedMessage = discord.Embed(title="Hi cuties", description=f"Check out {ytChannelID}'s new video on youtube\n## [{ytTitle}]({videoLink})", color=discord.Color.pink())
     embedMessage.add_field(name='', value=f"Hope you'll love it.", inline=False)
     embedMessage.set_thumbnail(url=self.author.avatar)
     embedMessage.set_image(url=ytThumbnail)
