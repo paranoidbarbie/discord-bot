@@ -1,0 +1,16 @@
+aiohttp==3.9.5
+aiosignal==1.3.1
+attrs==23.2.0
+certifi==2024.6.2
+charset-normalizer==3.3.2
+discord==2.3.2
+discord.py==2.3.2
+frozenlist==1.4.1
+idna==3.7
+multidict==6.0.5
+python-dotenv==1.0.1
+pytube==15.0.0
+requests==2.32.3
+typing_extensions==4.12.2
+urllib3==2.2.2
+yarl==1.9.4

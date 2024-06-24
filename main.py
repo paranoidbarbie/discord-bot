@@ -5,7 +5,6 @@ from os import getenv
 from requests import get
 from re import search
 from pytube import YouTube
-#import json 
 
 #load dotenv & assign variable to it
 load_dotenv()
@@ -28,7 +27,7 @@ async def embedvideo(self):
     roleid = "<@&role_id>" #put the role id you want to mention
     ytChannelID = "channeid" #put the channel id of the channel you wanna show video of
     channel = "https://youtube.com/@" + ytChannelID #put the channel id you wanna fetch data from 
-    discordChannel = bot.get_channel(@channelid) replace @channelid with actual channel id. 
+    discordChannel = bot.get_channel("channelid") # replace channelid with actual channel id wiout the parenthesis
     html = get(channel+'/videos').text
     videoLink = "https://www.youtube.com/watch?v=" + search('(?<="videoId":").*?(?=")', html).group()
     youtubeimage = "https://img.youtube.com/vi/" + search('(?<="videoId":").*?(?=")', html).group()
