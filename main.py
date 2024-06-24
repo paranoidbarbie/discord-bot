@@ -28,19 +28,17 @@ async def embedvideo(self):
     discordChannel = bot.get_channel(1249457341854781520)
     channel = "https://youtube.com/@programmer_cutie"
     html = get(channel+'/videos').text
-    #print(json.dumps(html))
     videoLink = "https://www.youtube.com/watch?v=" + search('(?<="videoId":").*?(?=")', html).group()
     youtubeimage = "https://img.youtube.com/vi/" + search('(?<="videoId":").*?(?=")', html).group()
     ytTitle = YouTube(videoLink).title
     ytThumbnail = youtubeimage + '/maxresdefault.jpg'
     channel_id = 1254440863925407825
-    channel = bot.get_channel(channel_id)
-    embedMessage = discord.Embed(title="Hi cuties", description="Check out Hannah's new video on youtube", color=discord.Color.pink())
-    embedMessage.add_field(name=f'', value=f"[{ytTitle}]({videoLink})", inline=False)
+    discordChannel = bot.get_channel(channel_id)
+    embedMessage = discord.Embed(title="Hi cuties", description=f"Check out Hannah's new video on youtube\n## [{ytTitle}]({videoLink})", color=discord.Color.pink())
     embedMessage.add_field(name='', value=f"Hope you'll love it.", inline=False)
     embedMessage.set_thumbnail(url=self.author.avatar)
     embedMessage.set_image(url=ytThumbnail)
-    await discordChannel.send(f"<@1249459622205722686>", embed=embedMessage) 
+    await discordChannel.send(f"<@&1249459622205722686>", embed=embedMessage) 
 
 bot.run(TOKEN)
 
